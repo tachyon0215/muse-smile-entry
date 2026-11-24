@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Write the entry line to entry.txt. Deterministic, stdlib only."""
+"""Write the entry line to entry.txt. Deterministic, stdlib only.
+
+Entry for make.fun 'Make the Judge Smile': one line about a small good
+thing that happened today, kept under the 200-character gate.
+"""
 import os
 from pathlib import Path
 
@@ -9,6 +13,7 @@ MAX_CHARS = 200
 
 
 def validate(text: str) -> None:
+    # The gate counts characters of the line itself, newline excluded.
     if not (1 <= len(text.rstrip("\n")) <= MAX_CHARS):
         raise ValueError("entry length out of range")
     if not text.strip():
